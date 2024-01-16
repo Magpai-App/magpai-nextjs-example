@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
             workflowId: WorkflowID,
+            webhook: `https://magpai-nextjs.vercel.app/api/webhook`,
             inputs: {
                 "Prompt": prompt || "Magpai"
             }
@@ -33,5 +34,5 @@ export async function POST(request: NextRequest) {
 
     console.log(data);
 
-    return NextResponse.json({ message: "Hello World", data: data });
+    return NextResponse.json({ data });
 }
